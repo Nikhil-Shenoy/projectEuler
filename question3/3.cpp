@@ -68,24 +68,3 @@ int main()
 
 	cout << "The largest prime factor of " << input << " is " << choices[choices.size() - 1] << endl;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
