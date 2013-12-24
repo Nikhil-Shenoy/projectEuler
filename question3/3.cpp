@@ -5,7 +5,13 @@ using namespace std;
 
 // Problem Description: What is the largest prime factor of the number 600851475143?
 
-// Approach: I first want to get the factors of the number that was input. I can do this by dividing the input by each number between 2 and the square root of the input. I can do this because if n = a*b, then both a and b cannot exceed the square root of the input. Every time I find a factor of the input, I put it into vector. Once all the factors are found, I iterate through the vector and remove all the composite numbers. After this is done, the largest prime factor should be at the end of the vector.
+/* Approach: I first want to get the factors of the number that was input. 
+I can do this by dividing the input by each number between 2 and the square root of the input. 
+I can do this because if n = a*b, then both a and b cannot exceed the square root of the input. 
+Every time I find a factor of the input, I put it into vector. 
+Once all the factors are found, I iterate through the vector and remove all the composite numbers. 
+After this is done, the largest prime factor should be at the end of the vector.
+*/
 
 //Solution: The largest prime factor of 600851475143 is 6857
 
