@@ -4,39 +4,94 @@
 
 #include <sstream>
 #include <iostream>
+#include <string>
+#include <stack>
+#include <queue>
 using namespace std;
 
-int main()
+void checkNumber(string Result, bool &flag)
 {
-	int top = 999*999;	
-	bool flag = false;
 
-	while(flag == false)
-	{
-		string Result;
-
-		ostringstream convert;
-
-		convert << number;
-
-		Result = convert.str();
-
-		checkNumber(Result,flag);
-	}
-}
-
-bool checkNumber(int number, bool &flag)
-{
+	
 	if(Result.length() == 0 || Result.length() == 1)
-		return true;
-	else if(Result.begin() != Result.end())
 	{
-		return false;
+		flag = true;
+		cout << "Flag set to true" << endl;
+	}
+	else if(Result[0] == Result[Result.size()-1])
+	{
+		Result.erase(Result.begin());
+		Result.erase(Result.end()-1);
+		checkNumber(Result,flag);
 	}
 	else
 	{
-		Result.erase(Result.begin());
-		Result.erase(Result.end());
-		return checkNumber(Result);
+		flag = false;
+		cout << "Flag set to false" << endl;
 	}
+
 }
+/*
+void alternate(string Result, bool flag)
+{
+	queue<char> myQueue;
+	stack<char> myStack;
+
+	for(int i = 0; i < Result.size(); i++)
+	{
+		myQueue.push(Result[i]);
+		myStack.push(Result[i]);
+	}
+
+	bool stop = false;
+	int i = Result.length();
+	while((stop == false) && (i != -1))
+	{
+		char stackVar = myStack.top();
+		char queueVar = myQueue.front();
+		myStack.pop();
+		myQueue.pop();
+			
+		i--;
+
+		if(stackVar != queueVar)
+		{
+			stop = true;
+			flag = true;
+		}
+		cout << "something" << endl;
+	}	
+}		
+*/		
+
+int main()
+{
+	int number;
+	int i = 999;
+	int j = 999;	
+	bool flag = false;
+
+	while((i>99) && (flag == false))
+	{
+		while((j>99) && (flag == false))
+		{
+			number = i*j;
+
+			string Result;
+			ostringstream convert;
+			convert << number;
+			Result = convert.str();
+
+			checkNumber(Result,flag);	
+			
+			j--;
+			cout << "The current number is: " << number << endl;
+		}
+	
+		i--;
+	}
+
+		
+
+}
+
