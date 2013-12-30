@@ -11,13 +11,8 @@ using namespace std;
 
 void checkNumber(string Result, bool &flag)
 {
-
-	
-	if(Result.length() == 0 || Result.length() == 1)
-	{
+	if((Result.length() == 0) || (Result.length() == 1))
 		flag = true;
-		cout << "Flag set to true" << endl;
-	}
 	else if(Result[0] == Result[Result.size()-1])
 	{
 		Result.erase(Result.begin());
@@ -25,12 +20,48 @@ void checkNumber(string Result, bool &flag)
 		checkNumber(Result,flag);
 	}
 	else
-	{
 		flag = false;
-		cout << "Flag set to false" << endl;
-	}
 
 }
+
+int main()
+{
+
+	int i = 999;
+	int j = 999;
+	int largest = 0;
+	int number;
+	bool flag = false;
+
+	while(i > 99)
+	{
+		while(j > 99) 
+		{
+			number = i*j;
+			
+			string Result;
+			ostringstream convert;
+			convert << number;
+			Result = convert.str();
+
+			
+			checkNumber(Result,flag);
+			j--;
+			convert.str("");
+			
+			if((flag == true) && (number > largest))
+				largest = number;
+		}
+	
+		i--;
+		j = i;
+	}
+
+	cout << "The largest palindrome that is a product of two three-digit numbers is: " << largest << endl;
+
+}
+
+
 /*
 void alternate(string Result, bool flag)
 {
@@ -64,34 +95,59 @@ void alternate(string Result, bool flag)
 }		
 */		
 
-int main()
-{
-	int number;
-	int i = 999;
-	int j = 999;	
-	bool flag = false;
 
-	while((i>99) && (flag == false))
-	{
-		while((j>99) && (flag == false))
-		{
-			number = i*j;
 
-			string Result;
-			ostringstream convert;
-			convert << number;
-			Result = convert.str();
 
-			checkNumber(Result,flag);	
-			
-			j--;
-			cout << "The current number is: " << number << endl;
-		}
-	
-		i--;
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		
 
-}
+
 
